@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  th-gaming-api:
+    build:
+      context: api
+      dockerfile: Dockerfile
+    env_file:
+      - ./api/.env
+    ports:
+      - 3333:3333
+    depends_on:
+      - th-gaming-database
+
+  th-gaming-database:
+    container_name: th-gaming-database
+    image: postgres:11-alpine
+    volumes:
+      - th_gaming_volume:/var/lib/postgresql/data
+    restart: always
+    environment:
+      - POSTGRES_DB=thgaming
+      - POSTGRES_USER=thgaming
+      - POSTGRES_PASSWORD=thgaming
+    ports:
+      - 5432:5432
+      
+volumes:
+  th_gaming_volume:

@@ -2,6 +2,7 @@
   <section class="roulette-container">
     <Title text="Roulette" class="mt-4"/>
     
+    <Roulette />
   </section>
 </template>
 

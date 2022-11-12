@@ -1,5 +1,5 @@
 <template>
-  <lottie-animation path="./animations/1.json" />
+  <lottie-animation path="./animations/8.json"/>
 </template>
 
 <script lang="ts">

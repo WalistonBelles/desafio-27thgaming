@@ -1,5 +1,9 @@
 <template>
-  <lottie-animation path="./animations/8.json" />
+  <lottie-animation 
+    path="./animations/roulette.json" 
+    :loop="false"
+    :speed="0.5"
+  />
 </template>
 
 <script lang="ts">

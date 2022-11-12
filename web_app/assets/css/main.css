@@ -3,12 +3,19 @@
   --secondary: #006557;
   --white: #ffffff;
   --beige: #f4f3ef;
+  --background: #241f29;
+  --background-two: #3a2f42;
 }
 
 #app {
-  background-color: var(--beige);
+  background-color: var(--background);
 }
 
 .v-application a {
   text-decoration: none;
 }
+
+.theme--light.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state) > .v-input__control > .v-input__slot fieldset, .theme--light.v-label, .theme--light.v-input input, .theme--light.v-input textarea, .theme--light.v-icon {
+  color: var(--white) !important;
+}
+

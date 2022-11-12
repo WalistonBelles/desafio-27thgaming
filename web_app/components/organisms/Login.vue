@@ -81,6 +81,9 @@ export default Vue.extend({
 }
 
 .login-container {
+  background: var(--background-two);
+  padding: 24px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,6 +91,10 @@ export default Vue.extend({
   width: 350px;
   left: 0;
   right: 0;
+}
+
+.logo {
+  width: 50%;
 }
 
 .buttonBase {

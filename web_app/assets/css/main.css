@@ -1,0 +1,14 @@
+:root {
+  --primary: #00ba9f;
+  --secondary: #006557;
+  --white: #ffffff;
+  --beige: #f4f3ef;
+}
+
+#app {
+  background-color: var(--beige);
+}
+
+.v-application a {
+  text-decoration: none;
+}

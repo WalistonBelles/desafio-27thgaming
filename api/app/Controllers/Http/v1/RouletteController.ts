@@ -8,7 +8,7 @@ export default class RouletteController {
 
   /**
   * @swagger
-  * /v1/play:
+  * /v1/bet/play/:bet:
   *   get:
   *     tags:
   *       - Roulette V1

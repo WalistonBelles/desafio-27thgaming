@@ -6,7 +6,7 @@ test.group('Play roullete', async () => {
 
   test('Play roullete', async ({ client }) => {
     const response = await client
-      .get('/v1/play/even')
+      .get('/v1/bet/play/even')
       .guard('api')
       .loginAs(user)
     
@@ -18,7 +18,7 @@ test.group('Play roullete', async () => {
 
   test('bet must be valid', async ({ client }) => {
     const response = await client
-      .get('/v1/play/a')
+      .get('/v1/bet/play/a')
       .guard('api')
       .loginAs(user)
 

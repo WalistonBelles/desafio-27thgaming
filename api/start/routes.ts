@@ -14,5 +14,5 @@ Route.group(() => {
   Route.get('/users', 'v1/UserController.search')
   Route.get('/user/:id', 'v1/UserController.find')
 
-  Route.get('/play/:bet', 'v1/RouletteController.playBet')
+  Route.get('/bet/play/:bet', 'v1/RouletteController.playBet')
 }).prefix('v1').middleware(['auth', 'authApiKey']);

@@ -66,7 +66,16 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
+    '@nuxtjs/toast'
   ],
+  
+  toast: {
+    position: 'top-right',
+    keepOnHover: true,
+    duration: 3000,
+    theme: "bubble",
+    singleton: true,
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

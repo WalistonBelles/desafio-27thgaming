@@ -7,10 +7,6 @@
       <RouletteAnimation v-if="isLoading"/>
       <NumberAnimation v-if="isFinished" :number="numberResult" />
     </v-col>    
-    <v-col class="ma-0 pa-0" cols="12">
-      <SuccessAnimation v-if="isSuccess"/>
-      <FailedAnimation v-else-if="isFailed"/>
-    </v-col>    
   </v-row>
 </template>
 
@@ -26,9 +22,7 @@ export default Vue.extend({
       error: false,
       isFinished: false,
       isLoading: false,
-      numberResult: 0,
-      isSuccess: false,
-      isFailed: false
+      numberResult: 0
     }
   },
 
@@ -36,8 +30,6 @@ export default Vue.extend({
     async onAction() {
       this.$set(this, 'isLoading', true);
       this.$set(this, 'isFinished', false);
-      this.$set(this, 'isSuccess', false);
-      this.$set(this, 'isFailed', false);
 
       const res = await bet.playBet(bet.$betType);
       
@@ -46,15 +38,23 @@ export default Vue.extend({
           this.$set(this, 'isFinished', true);
           this.$set(this, 'numberResult', res.result.roll.number);
           if (res.result.bet.win) {
-            this.$set(this, 'isSuccess', true);
-            setTimeout(() => {
-              this.$set(this, 'isSuccess', false);
-            }, 2000)
+            this.$toast.success(
+              'Você acertou!!',
+              {
+                keepOnHover: true,
+                duration: 2000,
+                theme: "bubble",
+              }
+            )
           } else {
-            this.$set(this, 'isFailed', true);
-            setTimeout(() => {
-              this.$set(this, 'isFailed', false);
-            }, 2000)
+            this.$toast.error(
+              'Você errou :/',
+              {
+                keepOnHover: true,
+                duration: 2000,
+                theme: "bubble",
+              }
+            )
           }
         }
 

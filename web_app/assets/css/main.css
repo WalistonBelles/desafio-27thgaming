@@ -24,3 +24,34 @@ header {
   color: var(--white) !important;
 }
 
+.toasted-container .toasted {
+  top: 0px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: bold !important;
+  font-size: 19px !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  height: 65px !important;
+  transform: none !important;
+}
+
+.toasted-container.top-right {
+  top: 5%;
+  right: 1%;
+}
+
+.toasted.bubble.error {
+  background: #f44336d7 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .toasted-container .toasted {
+    width: 350px !important;
+    top: -15px !important;
+    border-radius: 30px !important; 
+  }
+  .toasted-container.bottom-right {
+    right: 0% !important;
+    bottom: 2% !important;
+  }
+}

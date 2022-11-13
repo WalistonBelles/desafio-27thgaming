@@ -1,7 +1,8 @@
 import {
   Module,
   VuexModule,
-  Action
+  Action,
+  Mutation
 } from 'vuex-module-decorators'
 
 import { $axios } from '~/utils/nuxt-instance'
@@ -13,8 +14,19 @@ import { $axios } from '~/utils/nuxt-instance'
 })
 
 export default class Bet extends VuexModule {
+  private betType: String = undefined
+
+  public get $betType() {
+    return this.betType
+  }
+
+  @Mutation
+  private SET_BET_TYPE(betType: String) {
+    this.betType = betType;
+  }
+
   @Action
-  public async playBet(bet: string) {
+  public async playBet(bet: String) {
     try {
       return await $axios.$get(`play/${bet}`)
         .then((response) => {
@@ -29,5 +41,10 @@ export default class Bet extends VuexModule {
     } catch(err) {
       return err;
     }
+  }
+
+  @Action
+  public setBetType(betType: String) {
+    this.context.commit('SET_BET_TYPE', betType);
   }
 }

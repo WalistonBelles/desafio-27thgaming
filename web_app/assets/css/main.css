@@ -11,6 +11,10 @@
   background-color: var(--background);
 }
 
+header {
+  background-color: var(--background-two) !important;
+}
+
 .v-application a {
   text-decoration: none;
 }

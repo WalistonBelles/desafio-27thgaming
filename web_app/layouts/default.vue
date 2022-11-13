@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <v-app-bar
-      color="white"
       clipped-left
       dense
       fixed

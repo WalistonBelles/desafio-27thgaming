@@ -1,4 +1,5 @@
 ## 👨🏾‍💻 Project documentation.
+La propuesta desarrollada es una ruleta que consume una api pública.
 
 <h2> 🍸 Endpoints </h2>
 To access the endpoints collection via postman <a href="https://www.getpostman.com/collections/f5269a63bdf0d1434a50" target="_blank"> click here . </a>

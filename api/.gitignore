@@ -5,5 +5,5 @@ coverage
 .DS_STORE
 .env
 tmp
-package.json
+package-lock.json
 yarn.lock

@@ -1,5 +1,8 @@
 import Route from '@ioc:Adonis/Core/Route';
 
+Route.get('/', 'v1/SwaggerController.index')
+Route.get('/api-docs', 'v1/SwaggerController.index')
+
 Route.group(() => {
   Route.post('/login', 'v1/LoginController.login')
   Route.get('/logout', 'v1/LoginController.logout')

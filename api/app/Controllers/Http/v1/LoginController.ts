@@ -6,9 +6,91 @@ import LoginService from 'App/Services/v1/LoginService'
 import LoginValidator from 'App/Validators/v1/LoginValidator'
 
 export default class LoginController {
-
   public loginService = new LoginService();
 
+  /**
+  * @swagger
+  * /v1/login:
+  *   post:
+  *     tags:
+  *       - Auth V1
+  *     summary: Grant access to the system
+  *     parameters:
+  *       - name: email
+  *         schema:
+  *           type: string
+  *         in: body
+  *         required: true
+  *       - name: password
+  *         schema:
+  *           type: string
+  *         in: body
+  *         required: true
+  *       - name: rememberMe
+  *         schema:
+  *           type: boolean
+  *         in: body
+  *         required: false
+  *     responses:
+  *       200:
+  *         content:
+  *           application/json:
+  *             schema:
+  *               type: object 
+  *               properties:
+  *                 code:
+  *                   type: string
+  *                   enum: [LOGIN_SUCCESS]
+  *                 result:
+  *                   type: object
+  *                   properties:
+  *                     type: 
+  *                       type: "bearer"
+  *                     token: 
+  *                       type: string
+  *                     expires_at: 
+  *                       type: string
+  *                     expires_in: 
+  *                       type: number
+  *                     payload:
+  *                       type: object
+  *                       properties:
+  *                         id:
+  *                           type: number
+  *                         name:
+  *                           type: string
+  *                         photo:
+  *                           type: string
+  *       400:
+  *         content:
+  *           application/json:
+  *             schema:
+  *               type: object 
+  *               properties:
+  *                 code:
+  *                   type: string
+  *                   enum: [VALIDATE_ERROR, LOGIN_ERROR, REQUEST_ERROR]
+  *                 result:
+  *                   type: array
+  *                   items:
+  *                     type: object
+  *                     properties:
+  *                       title: 
+  *                         type: string
+  *                       message: 
+  *                         type: string
+  *                       errors:
+  *                         type: array
+  *                         items:
+  *                           type: object
+  *                           properties:
+  *                             message:
+  *                               type: string
+  *                             rule: 
+  *                               type: string
+  *                             field: 
+  *                               type: string
+  */
   public async login(ctx: HttpContextContract) {
     const payload = await ctx.request.validate(LoginValidator);
 
@@ -33,6 +115,58 @@ export default class LoginController {
     ctx.response.status(200).send(body)
   }
 
+  /**
+  * @swagger
+  * /v1/logout:
+  *   get:
+  *     tags:
+  *       - Auth V1
+  *     summary: Logout from the system
+  *     responses:
+  *       200:
+  *         content:
+  *           application/json:
+  *             schema:
+  *               type: object 
+  *               properties:
+  *                 code:
+  *                   type: string
+  *                   enum: [LOGOUT_SUCCESS]
+  *                 result:
+  *                   type: object
+  *                   properties:
+  *                     validate:
+  *                       type: boolean
+  *       400:
+  *         content:
+  *           application/json:
+  *             schema:
+  *               type: object 
+  *               properties:
+  *                 code:
+  *                   type: string
+  *                   enum: [LOGOUT_ERROR]
+  *                 result:
+  *                   type: array
+  *                   items:
+  *                     type: object
+  *                     properties:
+  *                       title: 
+  *                         type: string
+  *                       message: 
+  *                         type: string
+  *                       errors:
+  *                         type: array
+  *                         items:
+  *                           type: object
+  *                           properties:
+  *                             message:
+  *                               type: string
+  *                             rule: 
+  *                               type: string
+  *                             field: 
+  *                               type: string
+  */
   public async logout(ctx: HttpContextContract) {
 
     if (!ctx.request.header('Authorization')) {

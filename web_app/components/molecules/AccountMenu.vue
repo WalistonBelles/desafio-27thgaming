@@ -63,4 +63,8 @@ export default Vue.extend({
 .cursor-pointer {
   cursor: pointer;
 }
+
+:deep .theme--light.v-icon {
+  color: var(--black) !important;  
+}
 </style>

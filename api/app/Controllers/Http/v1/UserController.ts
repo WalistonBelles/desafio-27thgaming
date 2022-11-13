@@ -10,7 +10,7 @@ export default class UserController {
 
   /**
   * @swagger
-  * /v1/users:
+  * /v1/user:
   *   post:
   *     tags:
   *       - User V1
@@ -429,13 +429,21 @@ export default class UserController {
   *                               type: string
   */
   public async find(ctx: HttpContextContract) {
-    const result = await this.userService.find(ctx.request.param('id'));
-
     const headers: HttpHeader[] = [
       { key: 'Content-type', value: 'application/json' }
     ];
 
-    const body: HttpBody = { code: 'SEARCH_SUCCESS', result };
+    if (isNaN(parseFloat(ctx.request.param('id')))) {
+      ctx.response.status(200).send({
+        body: { code: 'FIND_NOTFOUND' }, 
+        headers 
+      });
+      return;
+    }
+
+    const result = await this.userService.find(ctx.request.param('id'));
+
+    const body: HttpBody = { code: 'FIND_FOUND', result };
 
     ctx.response.status(200).send({body, headers });
   }

@@ -94,6 +94,7 @@ export default class RouletteController {
       }
 
       ctx.response.status(400).send(body)
+      return
     }
     
     const result = await this.rouletteService.getBet(bet);

@@ -9,8 +9,8 @@ Route.group(() => {
 }).prefix('v1');
 
 Route.group(() => {
-  Route.post('/users', 'v1/UserController.create')
-  Route.patch('/users', 'v1/UserController.update')
+  Route.post('/user', 'v1/UserController.create')
+  Route.patch('/user', 'v1/UserController.update')
   Route.get('/users', 'v1/UserController.search')
   Route.get('/user/:id', 'v1/UserController.find')
 

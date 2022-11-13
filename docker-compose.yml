@@ -7,10 +7,23 @@ services:
       dockerfile: Dockerfile
     env_file:
       - ./api/.env
+    environment:
+      - PG_HOST=th-gaming-database
     ports:
       - 3333:3333
     depends_on:
       - th-gaming-database
+
+  th-gaming-web-app:
+    build:
+      context: web_app
+      dockerfile: Dockerfile
+    environment:
+      - API_HOST=localhost:3333
+    ports:
+      - 3000:3000
+    depends_on:
+      - th-gaming-api
 
   th-gaming-database:
     container_name: th-gaming-database

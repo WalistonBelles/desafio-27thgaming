@@ -28,7 +28,7 @@ export default class Bet extends VuexModule {
   @Action
   public async playBet(bet: String) {
     try {
-      return await $axios.$get(`play/${bet}`)
+      return await $axios.$get(`bet/play/${bet}`)
         .then((response) => {
           if (response.code !== 'BET_SUCCESS') 
             throw new Error(response);

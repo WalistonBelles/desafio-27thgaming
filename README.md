@@ -24,6 +24,9 @@ $ cd api
 
 # Create your .env file using .env.example as an example
 
+# Install Dependencies
+$ yarn install
+
 # Create database structure
 $ node ace migration:run
 $ node ace db:seed

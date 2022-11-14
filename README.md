@@ -6,6 +6,13 @@ To access the endpoints collection via postman <a href="https://www.getpostman.c
 
 To access the endpoints documentation via swagger, just access the root endpoint, example: (http://localhost:3333/)
 
+<h2> 🍸 Automated tests </h2>
+To run the automated tests on the api, you can run the following command inside the api api:
+
+```bash
+$ node ace test
+```
+
 <h2> 🍸 Build Setup </h2>
 
 ```bash
